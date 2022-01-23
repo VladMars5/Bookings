@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+<title>AirLines | Book</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+<script type="text/javascript" src="{% static 'js/jquery-1.5.2.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/cufon-yui.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/cufon-replace.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/Cabin_400.font.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/tabs.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.jqtransform.js'%}" ></script>
+<script type="text/javascript" src="{% static 'js/jquery.nivo.slider.pack.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/atooltip.jquery.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<!--[if lt IE 9]-->
+<script type="text/javascript" src="{% static 'js/html5.js' %}"></script>
+<style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
+<![endif]-->
+</head>
+<body id="page3">
+<div class="main">
+  <!--header -->
+  <header>
+    <div class="wrapper">
+      <h1><a href="index.html" id="logo">AirLines</a></h1>
+      <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
+      <nav id="top_nav">
+        <ul>
+          <li><a href="index.html" class="nav1">Home</a></li>
+          <li><a href="#" class="nav2">Sitemap</a></li>
+          <li><a href="contacts.html" class="nav3">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li><a href="index.html"><span><span>About</span></span></a></li>
+        <li><a href="offers.html"><span><span>Offers</span></span></a></li>
+        <li id="menu_active"><a href="book.html"><span><span>Book</span></span></a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- / header -->
+  <!--content -->
+  <section id="content">
+    <div class="wrapper pad1">
+      <article class="col1">
+        <div class="box1">
+          <h2 class="top">Hot Offers of the Week</h2>
+          <div class="pad"> <strong>Birmingham</strong><br>
+            <ul class="pad_bot1 list1">
+              <li><span class="right color1">from GBP 143.-</span><a href="book2.html">Zurich</a></li>
+            </ul>
+            <strong>London (LCY)</strong><br>
+            <ul class="pad_bot1 list1">
+              <li><span class="right color1">from GBP 176.-</span><a href="book2.html">Geneva</a></li>
+              <li><span class="right color1">from GBP 109.-</span><a href="book2.html">Zurich</a></li>
+            </ul>
+            <strong>London (LHR)</strong><br>
+            <ul class="pad_bot2 list1">
+              <li><span class="right color1">from GBP 100.-</span><a href="book2.html">Geneva</a></li>
+              <li><span class="right color1">from GBP 112.-</span><a href="book2.html">Zurich</a></li>
+              <li><span class="right color1">from GBP 88.-</span><a href="book2.html">Basel</a></li>
+            </ul>
+            <strong>Manchester</strong><br>
+            <ul class="pad_bot2 list1">
+              <li><span class="right color1">from GBP 97.-</span><a href="book2.html">Basel</a></li>
+              <li><span class="right color1">from GBP 103.-</span><a href="book2.html">Zurich</a></li>
+            </ul>
+            <strong>Edinburgh</strong><br>
+            <ul class="pad_bot2 list1">
+              <li><span class="right color1">from GBP 165.-</span><a href="book2.html">Zurich</a></li>
+            </ul>
+            <strong>Birmingham</strong><br>
+            <ul class="pad_bot1 list1">
+              <li><span class="right color1">from GBP 143.-</span><a href="book2.html">Zurich</a></li>
+            </ul>
+            <strong>London (LCY)</strong><br>
+            <ul class="pad_bot1 list1">
+              <li><span class="right color1">from GBP 176.-</span><a href="book2.html">Geneva</a></li>
+              <li><span class="right color1">from GBP 109.-</span><a href="book2.html">Zurich</a></li>
+            </ul>
+            <strong>London (LHR)</strong><br>
+            <ul class="pad_bot2 list1">
+              <li><span class="right color1">from GBP 100.-</span><a href="book2.html">Geneva</a></li>
+              <li><span class="right color1">from GBP 112.-</span><a href="book2.html">Zurich</a></li>
+              <li><span class="right color1">from GBP 88.-</span><a href="book2.html">Basel</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="col2">
+        <div class="tabs2">
+          <ul class="nav">
+            <li class="selected"><a href="#Flight">Полет</a></li>
+          </ul>
+          <div class="content">
+            <div class="tab-content" id="Flight">
+              <form id="form_5" action="{% url 'add_ticket' fly.flight_id %}" class="form_5" method="post">
+                {% csrf_token %}
+                <div>
+                  <div class="myclass">
+                  </div>
+                  <div class="pad">
+                    <div class="wrapper under">
+                      <div class="col1">
+                        <div class="row">
+                          <span class="left">Откуда</span>
+                          <span class="left">{{fly.departure_airport.airport_name}}</span>
+                        </div>
+                        <div class="row">
+                          <span class="left">Куда</span>
+                          <span class="left">{{fly.arrival_airport.airport_name}}</span>
+                        </div>
+                      </div>
+                      <div class="col1">
+                        <div class="row">
+                          <span class="left">Вылет</span>
+                          <span >{{fly.scheduled_departure_date}} {{fly.scheduled_departure_time}}</span>
+                        </div>
+                       <div class="row">
+                          <span class="left">Прилет</span>
+                          <span >{{fly.scheduled_arrival }}</span>
+                       </div>
+                      </div>
+                  </div>
+                    <div class="wrapper under">
+                      <span class="left">Место</span>
+                      <div class="cols marg_right1">
+                        <h6>В самолете {{fly.aircraft_code.model }} {{seats_none}}</h6>
+                        <div class="marg_top1 myclass1">
+                            <div class="select2">
+                            <select name="seat">
+                              {% for seat in seats %}
+                                <option name="seat">{{ seat }}</option>
+                              {% endfor %}
+                            </select>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="wrapper pad_bot1">
+                    <div class="row">Пассажир</div>
+                      <div class="col1">
+                        <div class="row">
+                          <span class="left">Фамилия</span>
+                          <input type="text" class="input" name="last name">
+                        </div>
+                        <div class="row">
+                          <span class="left" >Имя</span>
+                          <input type="text" class="input" name="first name">
+                        </div>
+                      </div>
+                      <div class="col1">
+                        <div class="row">
+                          <span class="left">Контакты</span>
+                          <input type="text" class="input" name="contact">
+                        </div>
+                        <div class="row">
+                        </div>
+                      </div>
+                      <button type="submit"
+                                class="right relative button1" onclick="make_zakaz">
+                            Отправить
+                        </button>
+<!--                      <span class="right relative"><a href="#" class="button1"><strong>раипа</strong></a></span>-->
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+      </article>
+    </div>
+  </section>
+  <!--content end-->
+  <!--footer -->
+  <footer>
+    <div class="wrapper">
+      <ul id="icons">
+        <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
+        <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
+        <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
+        <li><a href="#" class="normaltip"><img src="images/icon4.jpg" alt=""></a></li>
+        <li><a href="#" class="normaltip"><img src="images/icon5.jpg" alt=""></a></li>
+        <li><a href="#" class="normaltip"><img src="images/icon6.jpg" alt=""></a></li>
+      </ul>
+      <div class="links">Copyright &copy; <a href="#">Domain Name</a> All Rights Reserved<br>
+        Design by <a target="_blank" href="http://www.templatemonster.com/">TemplateMonster.com</a></div>
+    </div>
+  </footer>
+  <!--footer end-->
+</div>
+<script type="text/javascript">Cufon.now();</script>
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+    $('.form_5').jqTransform({
+        imgPath: 'jqtransformplugin/img/'
+    });
+});
+$(document).ready(function () {
+    tabs2.init();
+});
+</script>
+</body>
+</html>
